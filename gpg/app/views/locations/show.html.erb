@@ -1,0 +1,73 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first"><%= link_to "#{t("web-app-theme.list", :default => "List")}", locations_path  %></li>
+      <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_location_path %></li>
+      <li class="active"><%= link_to "#{t("web-app-theme.show", :default => "Show")}", location_path %></li>
+    </ul>
+  </div>          
+  <div class="content">
+    <div class="inner">
+      
+        <p>
+          <b><%= t("activerecord.attributes.location.name", :default => t("activerecord.labels.name", :default => "Name")) %>:</b>
+          <%= @location.name %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.location.type", :default => t("activerecord.labels.type", :default => "Type")) %>:</b>
+          <%= @location.type %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.location.address", :default => t("activerecord.labels.address", :default => "Indirizzo")) %>:</b>
+          <%= @location.address %>
+        </p>
+        <p>
+          <b><%= t("activerecord.attributes.location.zip", :default => t("activerecord.labels.zip", :default => "Zip")) %>:</b>
+          <%= @location.zip %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.location.comune", :default => t("activerecord.labels.comune", :default => "Comune")) %>:</b>
+          <%= @location.comune %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.location.provincia", :default => t("activerecord.labels.provincia", :default => "Provincia")) %>:</b>
+          <%= @location.provincia %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.location.numero_civico", :default => t("activerecord.labels.numero_civico", :default => "Numero civico")) %>:</b>
+          <%= @location.numero_civico %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.location.estensione_civico", :default => t("activerecord.labels.estensione_civico", :default => "Estensione civico")) %>:</b>
+          <%= @location.estensione_civico %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.location.numero_interno", :default => t("activerecord.labels.numero_interno", :default => "Numero interno")) %>:</b>
+          <%= @location.numero_interno %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.location.estensione_interno", :default => t("activerecord.labels.estensione_interno", :default => "Estensione interno")) %>:</b>
+          <%= @location.estensione_interno %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.location.customer_id", :default => t("activerecord.labels.customer_id", :default => "Customer")) %>:</b>
+          <%= @location.customer_id %>
+        </p>
+      <div class="wat-cf">
+        <%= link_to image_tag("web-app-theme/icons/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Edit")}") + " " + t("web-app-theme.edit", :default=> "Edit"), edit_location_path(@location), :class => "button" %> 
+        <%= link_to image_tag("web-app-theme/icons/cross.png", :alt => "#{t("web-app-theme.delete", :default=> "Delete")}") + " " + t("web-app-theme.delete", :default => "Delete"), location_path(@location), :method => "delete", :class => "button", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+      </div>      
+    </div>
+  </div>
+</div>
+
+<% content_for :sidebar, render(:partial => 'sidebar') -%>

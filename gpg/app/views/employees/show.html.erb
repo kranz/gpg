@@ -1,0 +1,54 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first"><%= link_to "#{t("web-app-theme.list", :default => "Elenco")}", employees_path  %></li>
+      <li><%= link_to "#{t("web-app-theme.new", :default => "Crea")}", new_employee_path %></li>
+      <li class="active"><%= link_to "#{t("web-app-theme.show", :default => "Mostra")}", employee_path %></li>
+    </ul>
+  </div>          
+  <div class="content">
+    <div class="inner">
+      
+        <p>
+          <b><%= t("activerecord.attributes.employee.firstname", :default => t("activerecord.labels.firstname", :default => "Nome")) %>:</b>
+          <%= @employee.firstname %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.employee.lastname", :default => t("activerecord.labels.lastname", :default => "Cognome")) %>:</b>
+          <%= @employee.lastname %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.employee.fiscalcode", :default => t("activerecord.labels.fiscalcode", :default => "Codice Fiscale")) %>:</b>
+          <%= @employee.fiscalcode %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.employee.birthdate", :default => t("activerecord.labels.birthdate", :default => "Data di nascita")) %>:</b>
+          <%= @employee.birthdate %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.employee.enrolldate", :default => t("activerecord.labels.enrolldate", :default => "Data assunzione")) %>:</b>
+          <%= @employee.enrolldate %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.employee.leavedate", :default => t("activerecord.labels.leavedate", :default => "Data di congedo")) %>:</b>
+          <%= @employee.leavedate %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.employee.sex", :default => t("activerecord.labels.sex", :default => "Sesso")) %>:</b>
+          <%= @employee.sex %>
+        </p>
+      <div class="wat-cf">
+        <%= link_to image_tag("web-app-theme/icons/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Modifica")}") + " " + t("web-app-theme.edit", :default=> "Modifica"), edit_employee_path(@employee), :class => "button" %> 
+        <%= link_to image_tag("web-app-theme/icons/cross.png", :alt => "#{t("web-app-theme.delete", :default=> "Elimina")}") + " " + t("web-app-theme.delete", :default => "Elimina"), employee_path(@employee), :method => "delete", :class => "button", :confirm => "#{t("web-app-theme.confirm", :default => "Sei sicuro?")}" %>
+      </div>      
+    </div>
+  </div>
+</div>
+
+<% content_for :sidebar, render(:partial => 'sidebar') -%>

@@ -11,12 +11,78 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111102145025) do
+ActiveRecord::Schema.define(:version => 20111119075144) do
+
+  create_table "accounts", :force => true do |t|
+    t.string   "codmastro"
+    t.string   "mastro"
+    t.string   "codconto"
+    t.string   "conto"
+    t.string   "codsottoconto"
+    t.string   "sottoconto"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "fullcode"
+  end
 
   create_table "business_types", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "contracts", :force => true do |t|
+    t.integer  "customer_id"
+    t.integer  "collector_id"
+    t.integer  "account_id"
+    t.integer  "business_type_id"
+    t.string   "number"
+    t.date     "date"
+    t.string   "type"
+    t.boolean  "block_flag"
+    t.date     "blocked_at"
+    t.date     "unblocked_at"
+    t.integer  "invoicing_freq"
+    t.string   "invoicing_months"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "customers", :force => true do |t|
+    t.string   "name"
+    t.string   "vatcode"
+    t.string   "fiscalcode"
+    t.string   "code"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "employees", :force => true do |t|
+    t.string   "firstname"
+    t.string   "lastname"
+    t.string   "fiscalcode"
+    t.date     "birthdate"
+    t.date     "enrolldate"
+    t.date     "leavedate"
+    t.string   "sex"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "locations", :force => true do |t|
+    t.string   "name"
+    t.string   "type"
+    t.string   "zip"
+    t.string   "comune"
+    t.string   "provincia"
+    t.string   "numero_civico"
+    t.string   "estensione_civico"
+    t.string   "numero_interno"
+    t.string   "estensione_interno"
+    t.integer  "customer_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "address"
   end
 
   create_table "users", :force => true do |t|

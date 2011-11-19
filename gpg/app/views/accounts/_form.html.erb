@@ -1,0 +1,44 @@
+
+  <div class="group">
+    <%= f.label :codmastro, t("activerecord.attributes.account.codmastro", :default => "Codmastro"), :class => :label %>
+    <%= f.text_field :codmastro, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :mastro, t("activerecord.attributes.account.mastro", :default => "Mastro"), :class => :label %>
+    <%= f.text_field :mastro, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :codconto, t("activerecord.attributes.account.codconto", :default => "Codconto"), :class => :label %>
+    <%= f.text_field :codconto, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :conto, t("activerecord.attributes.account.conto", :default => "Conto"), :class => :label %>
+    <%= f.text_field :conto, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :codsottoconto, t("activerecord.attributes.account.codsottoconto", :default => "Codsottoconto"), :class => :label %>
+    <%= f.text_field :codsottoconto, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :sottoconto, t("activerecord.attributes.account.sottoconto", :default => "Sottoconto"), :class => :label %>
+    <%= f.text_field :sottoconto, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+        
+<div class="group navform wat-cf">
+  <button class="button" type="submit">
+    <%= image_tag("web-app-theme/icons/tick.png", :alt => "#{t("web-app-theme.save", :default => "Save")}") %> <%= t("web-app-theme.save", :default => "Save") %>
+  </button>
+  <span class="text_button_padding"><%= t("web-app-theme.or", :default => "or") %></span>
+	<%= link_to t("web-app-theme.cancel", :default => "Cancel"), accounts_path, :class => "text_button_padding link_button" %>
+</div>

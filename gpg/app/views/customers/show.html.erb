@@ -1,0 +1,43 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first"><%= link_to "#{t("web-app-theme.list", :default => "Elenco")}", customers_path  %></li>
+      <li><%= link_to "#{t("web-app-theme.new", :default => "Crea")}", new_customer_path %></li>
+      <li class="active"><%= link_to "#{t("web-app-theme.show", :default => "Visualizza")}", customer_path %></li>
+    </ul>
+  </div>
+  <div class="content">
+    <div class="inner">
+        <p>
+          <b><%= t("activerecord.attributes.customer.name", :default => t("activerecord.labels.name", :default => "Nome")) %>:</b>
+          <%= @customer.name %>
+        </p>
+        <p>
+          <b><%= t("activerecord.attributes.customer.vatcode", :default => t("activerecord.labels.vatcode", :default => "Partita Iva")) %>:</b>
+          <%= @customer.vatcode %>
+        </p>
+        <p>
+          <b><%= t("activerecord.attributes.customer.fiscalcode", :default => t("activerecord.labels.fiscalcode", :default => "Codice Fiscale")) %>:</b>
+          <%= @customer.fiscalcode %>
+        </p>
+        <p>
+          <b><%= t("activerecord.attributes.customer.code", :default => t("activerecord.labels.code", :default => "Codice")) %>:</b>
+          <%= @customer.code %>
+        </p>
+        <div class="wat-cf">
+          <%= link_to image_tag("web-app-theme/icons/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Modifica")}") + " " + t("web-app-theme.edit", :default=> "Modifica"), edit_customer_path(@customer), :class => "button" %> 
+          <%= link_to image_tag("web-app-theme/icons/delete.png", :alt => "#{t("web-app-theme.delete", :default=> "Elimina")}") + " " + t("web-app-theme.delete", :default => "Elimina"), customer_path(@customer), :method => "delete", :class => "button", :confirm => "#{t("web-app-theme.confirm", :default => "Eliminando il Cliente verranno eliminati anche tutti gli indirizzi che ad esso si riferiscono. Sei sicuro?")}" %>
+        </div>
+    </div>
+  </div>
+</div>
+<div class="block">
+  <div class="content">
+    <div class="inner">
+      <div class="wat-cf">
+        <%= render :partial => "locations" %>
+      </div>
+    </div>
+  </div>
+</div>
+<% content_for :sidebar, render(:partial => 'sidebar') -%>

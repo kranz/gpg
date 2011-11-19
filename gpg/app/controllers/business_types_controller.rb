@@ -2,7 +2,7 @@ class BusinessTypesController < ApplicationController
   # GET /business_types
   # GET /business_types.json
   def index
-    @business_types = BusinessType.page(params[:page])
+    @business_types = BusinessType.order("name").page(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb

@@ -1,4 +1,16 @@
 Gpg::Application.routes.draw do
+  resources :contracts
+
+  resources :accounts
+
+  resources :employees
+
+  resources :locations
+
+  resources :customers do
+     resources :locations
+  end
+
   resources :business_types
 
   devise_for :users

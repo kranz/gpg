@@ -1,0 +1,53 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first"><%= link_to "#{t("web-app-theme.list", :default => "List")}", accounts_path  %></li>
+      <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_account_path %></li>
+      <li class="active"><%= link_to "#{t("web-app-theme.show", :default => "Show")}", account_path %></li>
+    </ul>
+  </div>          
+  <div class="content">
+    <div class="inner">
+      
+        <p>
+          <b><%= t("activerecord.attributes.account.fullcode", :default => t("activerecord.labels.fullcode", :default => "Codice completo")) %>:</b>
+          <%= @account.fullcode %>
+          </p>
+        <p>
+          <b><%= t("activerecord.attributes.account.codmastro", :default => t("activerecord.labels.codmastro", :default => "Codmastro")) %>:</b>
+          <%= @account.codmastro %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.account.mastro", :default => t("activerecord.labels.mastro", :default => "Mastro")) %>:</b>
+          <%= @account.mastro %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.account.codconto", :default => t("activerecord.labels.codconto", :default => "Codconto")) %>:</b>
+          <%= @account.codconto %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.account.conto", :default => t("activerecord.labels.conto", :default => "Conto")) %>:</b>
+          <%= @account.conto %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.account.codsottoconto", :default => t("activerecord.labels.codsottoconto", :default => "Codsottoconto")) %>:</b>
+          <%= @account.codsottoconto %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.account.sottoconto", :default => t("activerecord.labels.sottoconto", :default => "Sottoconto")) %>:</b>
+          <%= @account.sottoconto %>
+        </p>
+      <div class="wat-cf">
+        <%= link_to image_tag("web-app-theme/icons/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Edit")}") + " " + t("web-app-theme.edit", :default=> "Edit"), edit_account_path(@account), :class => "button" %> 
+        <%= link_to image_tag("web-app-theme/icons/cross.png", :alt => "#{t("web-app-theme.delete", :default=> "Delete")}") + " " + t("web-app-theme.delete", :default => "Delete"), account_path(@account), :method => "delete", :class => "button", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+      </div>      
+    </div>
+  </div>
+</div>
+
+<% content_for :sidebar, render(:partial => 'sidebar') -%>
