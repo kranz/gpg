@@ -1,4 +1,13 @@
 Gpg::Application.routes.draw do
+
+  resources :service_locations
+
+  resources :zones
+
+  resources :esattori
+
+  resources :contract_types
+
   resources :contracts
 
   resources :accounts

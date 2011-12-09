@@ -1,37 +1,37 @@
 <div class="block">
   <div class="secondary-navigation">
     <ul class="wat-cf">
-      <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "List")}", contracts_path  %></li>
-      <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_contract_path %></li>
+      <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "Elenco")}", contracts_path  %></li>
+      <li><%= link_to "#{t("web-app-theme.new", :default => "Crea")}", new_contract_path %></li>
     </ul>
   </div>          
   <div class="content">          
-    <h2 class="title"><%= t("web-app-theme.all", :default => "All")  %> Contracts</h2>
+    <h2 class="title"><%= t("web-app-theme.all", :default => "elenco")  %> Contratti</h2>
     <div class="inner">
       <table class="table">
         <tr>             
-          <th class="first">ID</th>
+          <th class="first">Numero Contratto</th>
                     <th>
-            <%= t("activerecord.attributes.contract.customer_id", :default => t("activerecord.labels.customer_id", :default => "Customer_id")) %>
+            <%= t("activerecord.attributes.contract.customer.name", :default => t("activerecord.labels.contract.customer.name", :default => "Cliente")) %>
           </th>
-                    <th><%= t("web-app-theme.created_at", :default => "Created at")  %></th>
+                    <th><%= t("activerecord.attributes.contract.date", :default => t("activerecord.labels.contract.date", :default => "Data contratto"))  %></th>
           <th class="last">&nbsp;</th>
         </tr>
         <% @contracts.each do |contract| -%>
         <tr class="<%= cycle("odd", "even") %>">
           <td>
-            <%= contract.id %>
+            <%= contract.number %>
           </td>
                     <td>
-            <%= link_to contract.customer_id, contract_path(contract) %>
+            <%= link_to contract.customer.name, contract_path(contract) %>
           </td>
                     <td>
-            <%= contract.created_at %>
+            <%= contract.date %>
           </td>
           <td class="last">
-            <%= link_to "#{t("web-app-theme.show", :default => "Show")}", contract_path(contract) %> |
-            <%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_contract_path(contract) %> |
-            <%= link_to "#{t("web-app-theme.delete", :default => "Delete")}", contract_path(contract), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+            <%= link_to "#{t("web-app-theme.show", :default => "Visualizza")}", contract_path(contract) %> |
+            <%= link_to "#{t("web-app-theme.edit", :default => "Modifica")}", edit_contract_path(contract) %> |
+            <%= link_to "#{t("web-app-theme.delete", :default => "Elimina")}", contract_path(contract), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
           </td>
         </tr>          
         <% end -%>

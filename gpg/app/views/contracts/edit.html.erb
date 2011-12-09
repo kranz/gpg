@@ -1,13 +1,12 @@
 <div class="block">
   <div class="secondary-navigation">
     <ul class="wat-cf">
-      <li class="first"><%= link_to "#{t("web-app-theme.list", :default => "List")}", contracts_path  %></li>
-      <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_contract_path %></li>
-      <li class="active"><%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_contract_path %></li>
+      <li class="first"><%= link_to "#{t("web-app-theme.list", :default => "Elenco")}", contracts_path  %></li>
+      <li><%= link_to "#{t("web-app-theme.new", :default => "Crea")}", new_contract_path %></li>
+      <li class="active"><%= link_to "#{t("web-app-theme.edit", :default => "Modifica")}", edit_contract_path %></li>
     </ul>
   </div>          
   <div class="content">            
-    <h2 class="title"><%= t("web-app-theme.edit", :default => "Edit") %> Contract</h2>
     <div class="inner">
       <%= form_for @contract, :url => contract_path(@contract), :html => { :class => :form } do |f| -%>
         <%= render :partial => "form", :locals => {:f => f} %>
@@ -15,5 +14,41 @@
     </div>
   </div>
 </div>
-
+<script type="text/javascript">
+  $("select[name='contract[invoicing_freq]'], select[name='contract[initial_month]']").change(function(){
+      var f = parseInt($("select[name='contract[invoicing_freq]']").val());
+      var i = parseInt($("select[name='contract[initial_month]']").val());
+      var mesi = new Array(12);
+      var dspmesi = new Array(12);
+      mesi[0]="GEN";
+      mesi[1]="FEB";
+      mesi[2]="MAR";
+      mesi[3]="APR";
+      mesi[4]="MAG";
+      mesi[5]="GIU";
+      mesi[6]="LUG";
+      mesi[7]="AGO";
+      mesi[8]="SET";
+      mesi[9]="OTT";
+      mesi[10]="NOV";
+      mesi[11]="DIC";
+      var x=0;
+      var k=0;
+      for(k=0;k<12;k=k+1) {
+        dspmesi[k]='<li class="moff">' + mesi[k] + '</li>';
+      }
+      k=0;
+      for(k=i;k<i+12;k=k+f) {
+         x = k % 12;
+         if (x == 0) { x = 12};
+         dspmesi[x-1]='<li class="mon">' + mesi[x-1] + '</li>';
+      }
+      var stringa = '<ul>';
+      for(k=0;k<12;k=k+1) {
+        stringa = stringa + dspmesi[k];
+      }
+      var c = stringa + '</ul>';
+      $("#scadfat").html(c)
+  });
+</script>
 <% content_for :sidebar, render(:partial => 'sidebar') -%>

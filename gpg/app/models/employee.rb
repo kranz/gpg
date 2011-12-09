@@ -1,3 +1,7 @@
 class Employee < ActiveRecord::Base
-  has_many  :contracts
+
+  def fullname
+    self.lastname + " " + self.firstname
+  end
+
 end

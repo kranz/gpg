@@ -2,6 +2,8 @@
 <html>
 <head>
   <title>gpg</title>
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0b2/jquery.mobile-1.0b2.min.css" />
+  <link rel="stylesheet" href="http://jquerymobile.com/demos/1.0/docs/_assets/css/jqm-docs.css" />
   <%= stylesheet_link_tag 'web_app_theme' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tag %>
@@ -9,7 +11,7 @@
 <body>
   <div id="container">
     <div id="header">
-      <h1><a href="/">guardie particolari giurate</a></h1>
+      <h1><a href="/">gpg</a></h1>
       <div id="user-navigation">
         <ul class="wat-cf">
           <li><a href="#"><%= t("web-app-theme.profile", :default => "Profile") %></a></li>
@@ -21,7 +23,8 @@
         <ul class="wat-cf">
           <li class="<%= params[:controller] == "home" ? "first_active" : "first" %>"><%= link_to "Home", root_path %></li>
           <li class="<%= params[:controller] == "customers" ? "active" : nil %>"><%= link_to "Clienti", customers_path %></li>
-        </ul>
+          <li class="<%= params[:controller] == "contracts" ? "active" : nil %>"><%= link_to "Contratti",contracts_path %></li>
+          </ul>
       </div>
     </div>    
     <div id="wrapper" class="wat-cf">
@@ -36,7 +39,7 @@
         <%= yield %>
         <div id="footer">
           <div class="block">
-            <p>Copyright &copy; <%= Time.now.year %> gpg.</p>
+            <p>Copyright &copy; <%= Time.now.year %> Frame Srl</p>
           </div>      
         </div>
       </div>

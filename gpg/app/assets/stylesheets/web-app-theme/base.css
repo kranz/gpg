@@ -16,6 +16,38 @@
 .wat-cf {display: block;}
 /* End hide from IE-mac */
 
+.show_group {clear: both; font-size: 16px;}
+.show_label {float: left; width: 25%;}
+.show_field {float: left; font-size: 18px;}
+
+
+.edit_group {clear: both; font-size: 16px; padding: 4px; }
+.edit_label {float: left; width: 25%; font-size: 16px; color: #666666;}
+.edit_field input, select {
+	float: left; 
+	font-size: 16px; 
+	font-weight: normal; 
+	color: #000000; 
+	width: 500px;
+}
+
+.edit_field .large_checkbox {
+	width: 30px;
+} 
+
+.edit_date select {
+	float: left; 
+	font-size: 16px; 
+	font-weight: normal; 
+	color: #000000; 
+	width: 70px;
+}
+
+#scadfat ul {list-style-type: none; font-size: 16px; }
+#scadfat ul li {float: left; padding: 0px 5px; border: none;}
+#scadfat .mon  {color: #FFFFFF; background-color: #66FF66;}
+#scadfat .moff  {color: #B0B0B0; background-color: #F0F0F0;}
+
 h1 { margin: 15px 0; font-size: 22px; font-weight: normal; }
 h2 { font-size: 22px; margin: 15px 0; font-weight: normal;}
 h3 { font-size: 18px; margin: 10px 0; font-weight: normal;}
@@ -25,7 +57,7 @@ p { margin: 15px 0;}
 a img { border: none; }
 
 body {
-  font-size: 12px;
+  font-size: 14px;
   font-family: sans-serif;  
 }
 
@@ -171,6 +203,7 @@ body {
 
 #footer {
   padding-bottom: 20px;
+  clear: both;
 }
 
 /* pagination */

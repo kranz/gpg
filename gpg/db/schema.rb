@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111119075144) do
+ActiveRecord::Schema.define(:version => 20111129080839) do
 
   create_table "accounts", :force => true do |t|
     t.string   "codmastro"
@@ -31,14 +31,19 @@ ActiveRecord::Schema.define(:version => 20111119075144) do
     t.datetime "updated_at"
   end
 
+  create_table "contract_types", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "contracts", :force => true do |t|
     t.integer  "customer_id"
-    t.integer  "collector_id"
+    t.integer  "esattore_id"
     t.integer  "account_id"
     t.integer  "business_type_id"
     t.string   "number"
     t.date     "date"
-    t.string   "type"
     t.boolean  "block_flag"
     t.date     "blocked_at"
     t.date     "unblocked_at"
@@ -46,6 +51,9 @@ ActiveRecord::Schema.define(:version => 20111119075144) do
     t.string   "invoicing_months"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "customer_name"
+    t.integer  "contract_type_id"
+    t.integer  "initial_month"
   end
 
   create_table "customers", :force => true do |t|
@@ -69,6 +77,16 @@ ActiveRecord::Schema.define(:version => 20111119075144) do
     t.datetime "updated_at"
   end
 
+  create_table "esattori", :force => true do |t|
+    t.string   "name"
+    t.string   "code"
+    t.string   "tipo"
+    t.string   "tipo_indennita"
+    t.integer  "valore_indennita"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "locations", :force => true do |t|
     t.string   "name"
     t.string   "type"
@@ -83,6 +101,15 @@ ActiveRecord::Schema.define(:version => 20111119075144) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "address"
+  end
+
+  create_table "service_locations", :force => true do |t|
+    t.integer  "location_id"
+    t.integer  "contract_id"
+    t.integer  "sequence"
+    t.boolean  "sort_flag"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", :force => true do |t|
@@ -102,5 +129,12 @@ ActiveRecord::Schema.define(:version => 20111119075144) do
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+
+  create_table "zones", :force => true do |t|
+    t.string   "code"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

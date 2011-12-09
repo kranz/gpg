@@ -1,16 +1,88 @@
 <div class="block" id="block-text">  
   <div class="content">
-    <h2 class="title">Home</h2>
-    <div class="inner">
-      <p class="first">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. <span class="hightlight">Excepteur sint occaecat cupidatat non proident</span>, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </p>
-      <p> <span class="small">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore</span></p>
-      <p> <span class="gray">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore</span></p>
-      <hr />
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. <span class="hightlight">Excepteur sint occaecat cupidatat non proident</span>, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </p>
+	<div class="inner">		
+    <h2 class="title">gpg - Guardie particolari Giurate</h2>
+      <div class="content-secondary">
+        <ul class="ui-listview ui-listview-inset ui-corner-all ui-shadow" data-dividertheme"f" data-theme="c" data-inset="true" data-role="listview">
+          <li class="ui-li ui-li-divider ui-btn ui-bar-f ui-corner-top ui-btn-up-undefined" datarole="list-divider" role="heading">
+            Gestione Tabelle
+          </li>   
+          <li data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-btn-up-c">
+            <div class="ui-btn-inner ui-li" aria-hidden="true">
+               <div class="ui-btn-text">
+                 <%= link_to "Piano dei conti", accounts_path, :class=> "ui-link-inherit" %>
+               </div>
+               <span class="ui-icon ui-icon-arrow-r ui-icon-shadow"></span>
+            </div>
+          </li>
+          <li data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-btn-up-c">
+            <div class="ui-btn-inner ui-li" aria-hidden="true">
+               <div class="ui-btn-text">
+                 <%= link_to "Tipi di attività", business_types_path, :class=> "ui-link-inherit" %>
+               </div>
+               <span class="ui-icon ui-icon-arrow-r ui-icon-shadow"></span>
+            </div>
+          </li>
+          <li data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-corner-bottom ui-btn-up-c">
+            <div class="ui-btn-inner ui-li" aria-hidden="true">
+               <div class="ui-btn-text">
+                 <%= link_to "Tipi di contratto", contract_types_path, :class=> "ui-link-inherit" %>
+               </div>
+               <span class="ui-icon ui-icon-arrow-r ui-icon-shadow"></span>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="content-secondary">
+	    <nav>
+		  <ul class="ui-listview ui-listview-inset ui-corner-all ui-shadow" data-dividertheme="b" data-theme="c" data-inset="true" data role="listview">
+		    <li class="ui-li ui-li-divider ui-btn ui-bar-b ui-corner-top ui-btn-up-undefined" data-role="list-divider" role="heading">
+			  Gestione Anagrafiche
+		    </li>
+		    <li class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-btn-up-c" data-theme="c">
+			  <div class="ui-btn-inner ui-li" aria-hidden="true">
+			    <div class="ui-btn-text">
+				  <%= link_to "Dipendenti", employees_path, :class => "ui-link-inherit" %>
+			    </div>
+			    <span class="ui-icon ui-icon-arrow-r ui-icon-shadow"></span>
+		      </div>
+  		    </li>
+		    <li class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-btn-up-c" data-theme="c">
+			  <div class="ui-btn-inner ui-li" aria-hidden="true">
+			    <div class="ui-btn-text">
+				  <%= link_to "Esattori", esattori_path, :class => "ui-link-inherit" %>
+			    </div>
+			    <span class="ui-icon ui-icon-arrow-r ui-icon-shadow"></span>
+			  </div>
+		    </li>
+
+		    <li class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-btn-up-c" data-theme="c">
+			  <div class="ui-btn-inner ui-li" aria-hidden="true">
+			    <div class="ui-btn-text">
+				  <%= link_to "Clienti", customers_path, :class => "ui-link-inherit" %>
+			    </div>
+			    <span class="ui-icon ui-icon-arrow-r ui-icon-shadow"></span>
+			  </div>
+		    </li>
+		    <li class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-btn-up-c" data-theme="c">
+			  <div class="ui-btn-inner ui-li" aria-hidden="true">
+			    <div class="ui-btn-text">
+				  <%= link_to "Zone", zones_path, :class => "ui-link-inherit" %>
+			    </div>
+			    <span class="ui-icon ui-icon-arrow-r ui-icon-shadow"></span>
+			  </div>
+		    </li>
+		    <li class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-corner-bottom ui-btn-up-c" data-theme="c">
+			  <div class="ui-btn-inner ui-li" aria-hidden="true">
+			    <div class="ui-btn-text">
+				  <%= link_to "Contratti", contracts_path, :class => "ui-link-inherit" %>
+			    </div>
+			    <span class="ui-icon ui-icon-arrow-r ui-icon-shadow"></span>
+			  </div>
+		    </li>
+		  </ul>
+	    </nav>
+	  </div>
     </div>
   </div>
 </div>

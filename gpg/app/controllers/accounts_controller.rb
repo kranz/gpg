@@ -2,11 +2,13 @@ class AccountsController < ApplicationController
   # GET /accounts
   # GET /accounts.json
   def index
-    @accounts = Account.page(params[:page])
-
+    @accounts = Account.order("fullcode").page(params[:page])
+    @all_accounts = Account.order("fullcode").where("fullcode like ?","%#{params[:term]}%")
+#    @accounts = Account.order(:fullcode).where("fullcode like ?","#{params[:term]}") 
+#    render json: @accounts.map(&:fullcode)
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @accounts }
+      format.json { render json: @all_accounts.collect{|k| k.fullcode + " - "+ k.sottoconto} }
     end
   end
 

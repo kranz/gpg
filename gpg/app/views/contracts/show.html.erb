@@ -1,76 +1,77 @@
 <div class="block">
   <div class="secondary-navigation">
     <ul class="wat-cf">
-      <li class="first"><%= link_to "#{t("web-app-theme.list", :default => "List")}", contracts_path  %></li>
-      <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_contract_path %></li>
-      <li class="active"><%= link_to "#{t("web-app-theme.show", :default => "Show")}", contract_path %></li>
+      <li class="first"><%= link_to "#{t("web-app-theme.list", :default => "Elenco")}", contracts_path  %></li>
+      <li><%= link_to "#{t("web-app-theme.new", :default => "Crea")}", new_contract_path %></li>
+      <li class="active"><%= link_to "#{t("web-app-theme.show", :default => "Mostra")}", contract_path %></li>
     </ul>
   </div>          
   <div class="content">
     <div class="inner">
-      
-        <p>
-          <b><%= t("activerecord.attributes.contract.customer_id", :default => t("activerecord.labels.customer_id", :default => "Customer")) %>:</b>
-          <%= @contract.customer_id %>
-        </p>
-
-        <p>
-          <b><%= t("activerecord.attributes.contract.collector_id", :default => t("activerecord.labels.collector_id", :default => "Collector")) %>:</b>
-          <%= @contract.collector_id %>
-        </p>
-
-        <p>
-          <b><%= t("activerecord.attributes.contract.account_id", :default => t("activerecord.labels.account_id", :default => "Account")) %>:</b>
-          <%= @contract.account_id %>
-        </p>
-
-        <p>
-          <b><%= t("activerecord.attributes.contract.business_type_id", :default => t("activerecord.labels.business_type_id", :default => "Business type")) %>:</b>
-          <%= @contract.business_type_id %>
-        </p>
-
-        <p>
-          <b><%= t("activerecord.attributes.contract.number", :default => t("activerecord.labels.number", :default => "Number")) %>:</b>
-          <%= @contract.number %>
-        </p>
-
-        <p>
-          <b><%= t("activerecord.attributes.contract.date", :default => t("activerecord.labels.date", :default => "Date")) %>:</b>
-          <%= @contract.date %>
-        </p>
-
-        <p>
-          <b><%= t("activerecord.attributes.contract.type", :default => t("activerecord.labels.type", :default => "Type")) %>:</b>
-          <%= @contract.type %>
-        </p>
-
-        <p>
-          <b><%= t("activerecord.attributes.contract.block_flag", :default => t("activerecord.labels.block_flag", :default => "Block flag")) %>:</b>
-          <%= @contract.block_flag %>
-        </p>
-
-        <p>
-          <b><%= t("activerecord.attributes.contract.blocked_at", :default => t("activerecord.labels.blocked_at", :default => "Blocked at")) %>:</b>
-          <%= @contract.blocked_at %>
-        </p>
-
-        <p>
-          <b><%= t("activerecord.attributes.contract.unblocked_at", :default => t("activerecord.labels.unblocked_at", :default => "Unblocked at")) %>:</b>
-          <%= @contract.unblocked_at %>
-        </p>
-
-        <p>
-          <b><%= t("activerecord.attributes.contract.invoicing_freq", :default => t("activerecord.labels.invoicing_freq", :default => "Invoicing freq")) %>:</b>
-          <%= @contract.invoicing_freq %>
-        </p>
-
-        <p>
-          <b><%= t("activerecord.attributes.contract.invoicing_months", :default => t("activerecord.labels.invoicing_months", :default => "Invoicing months")) %>:</b>
-          <%= @contract.invoicing_months %>
-        </p>
       <div class="wat-cf">
-        <%= link_to image_tag("web-app-theme/icons/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Edit")}") + " " + t("web-app-theme.edit", :default=> "Edit"), edit_contract_path(@contract), :class => "button" %> 
-        <%= link_to image_tag("web-app-theme/icons/cross.png", :alt => "#{t("web-app-theme.delete", :default=> "Delete")}") + " " + t("web-app-theme.delete", :default => "Delete"), contract_path(@contract), :method => "delete", :class => "button", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+        <h1>Dati generai di contratto</h1>
+        <div class="show_group">
+          <div class="show_label">Contratto</div>
+          <div class="show_field"><%= @contract.number %></div>
+        </div>
+        <div class="show_group">
+          <div class="show_label">Data Contratto</div>
+          <div class="show_field"><%= @contract.date %></div>
+        </div>
+        <div class="show_group">
+          <div class="show_label">Tipo contratto</div>
+          <div class="show_field"><%= @contract.contract_type.name %></div>
+        </div>
+        <div class="show_group">
+          <div class="show_label">Cliente</div>
+          <div class="show_field"><%= @contract.customer.code %> - <%= @contract.customer.name %></div>
+        </div>
+      </div>
+      <div class="wat-cf">
+      <h1>Condizioni di servizio</h1>
+        <div class="show_group">
+          <div class="show_label">Tipo Attività</div>
+          <div class="show_field"><%= @contract.business_type.name %></div>
+        </div>
+        <div class="show_group">
+          <div class="show_label">Esattore</div>
+          <div class="show_field"><%= @contract.esattore.name %></div>
+        </div>
+        <div class="show_group">
+          <div class="show_label">Zona</div>
+          <div class="show_field"><%= %></div>
+        </div>
+        <div class="show_group">
+          <div class="show_label">Intervallo fatturazione</div>
+          <div class="show_field"><%= @contract.invoicing_freq %></div>
+        </div>
+        <div class="show_group">
+          <div class="show_label">Scadenze fatturazione</div>
+          <div class="show_field"><%= @contract.invoicing_months %></div>
+        </div>
+        <div class="show_group">
+          <div class="show_label">Contropartita</div>
+          <div class="show_field"><%= @contract.account.fullcode + " " + @contract.account.sottoconto %></div>
+        </div>
+
+        <div class="show_group">
+          <div class="show_label">Sospeso</div>
+          <div class="show_field"><%= @contract.block_flag %></div>
+        </div>
+
+        <div class="show_group">
+          <div class="show_label">Dal</div>
+          <div class="show_field"><%= @contract.blocked_at %></div>
+        </div>
+
+        <div class="show_group">
+          <div class="show_label">Al</div>
+          <div class="show_field"><%= @contract.unblocked_at %></div>
+        </div>
+      </div>
+      <div class="wat-cf">
+        <%= link_to image_tag("web-app-theme/icons/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Modifica")}") + " " + t("web-app-theme.edit", :default=> "Modifica"), edit_contract_path(@contract), :class => "button" %> 
+        <%= link_to image_tag("web-app-theme/icons/delete.png", :alt => "#{t("web-app-theme.delete", :default=> "Elimina")}") + " " + t("web-app-theme.delete", :default => "Elimina"), contract_path(@contract), :method => "delete", :class => "button", :confirm => "#{t("web-app-theme.confirm", :default => "Sei sicuro?")}" %>
       </div>      
     </div>
   </div>

@@ -2,7 +2,7 @@ class ContractsController < ApplicationController
   # GET /contracts
   # GET /contracts.json
   def index
-    @contracts = Contract.page(params[:page])
+    @contracts = Contract.order("customer_name").page(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
