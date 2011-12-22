@@ -9,6 +9,7 @@ gem 'mysql2'
 gem 'devise'
 gem 'kaminari'
 gem 'therubyracer'
+gem 'geocoder'
 
 group :development, :test do
   gem 'capybara'

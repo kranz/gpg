@@ -1,13 +1,22 @@
 <div class="block notice">
-  <h3>Simple Block</h3>
-  <div class="content">
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-  </div>
+	  <%= link_to "Nuovo Indirizzo", new_contract_service_location_path(@contract), :class => "button" %>
 </div>
-<div class="block">
-  <h3>Links</h3>
-  <ul class="navigation">
-    <li><a href="#">Link 1</a></li>
-    <li><a href="#">Link 2</a></li>
+<div class="content">
+  <ul class="ui-listview ui-listview-inset ui-corner-all ui-shadow" data-dividertheme"f" data-theme="c" data-inset="true" data-role="listview">
+    <li class="ui-li ui-li-divider ui-btn ui-bar-f ui-corner-top ui-btn-up-undefined" datarole="list-divider" role="heading">
+      Indirizzi di servizio
+    </li>
+    <% @contract.service_locations.each do |sloc| -%>   
+      <li data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-btn-up-c">
+        <div class="ui-btn-inner ui-li" aria-hidden="true">
+           <div class="ui-btn-text">
+             <%= link_to sloc.location.name, 
+		                 contract_service_location_path(@contract, sloc), 
+		                 :class=> "ui-link-inherit" %>
+           </div>
+           <span class="ui-icon ui-icon-arrow-r ui-icon-shadow"></span>
+        </div>
+      </li>
+    <% end -%>
   </ul>
 </div>

@@ -1,10 +1,13 @@
 class Contract < ActiveRecord::Base
   before_save :set_cust_name
-  belongs_to :customer
-  belongs_to :account
-  belongs_to :business_type
-  belongs_to :contract_type
-  belongs_to :esattore
+  
+  belongs_to  :customer
+  belongs_to  :account
+  belongs_to  :business_type
+  belongs_to  :contract_type
+  belongs_to  :esattore
+  
+  has_many    :service_locations
   
 
   def account_code

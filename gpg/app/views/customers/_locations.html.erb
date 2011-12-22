@@ -1,4 +1,7 @@
-<h1 class="title" style="float: left">Indirizzi</h1><span style="float: left; margin: 15px"><%= link_to image_tag("web-app-theme/icons/add.png", :alt => "#{t("web-app-theme.add", :default => "Nuovo Indirizzo")}") + " " + t("web-app-theme.add", :default => "Nuovo Indirizzo"), new_customer_location_path(@customer), :class => "button" %></span>
+<h1 class="title" style="float: left">Indirizzi</h1>
+<span style="float: left; margin: 15px">
+    <%= link_to image_tag("web-app-theme/icons/add.png", :alt => "#{t("web-app-theme.add", :default => "Nuovo Indirizzo")}") + " " + t("web-app-theme.add", :default => "Nuovo Indirizzo"), new_customer_location_path(@customer), :class => "button" %>
+</span>
 
 <% @customer.locations.each do |location| %>
   <div class="group" style="clear: both">
@@ -9,7 +12,8 @@
        <%= h location.string_address %>
     </div>
     <div class="label" style="float: left">
-       <%= link_to "Modifica", edit_customer_location_path(@customer, location) %>
+       <%= link_to "Modifica", edit_customer_location_path(@customer, location) %> |
+       <%= link_to "Mostra", customer_location_path(@customer, location) %> 
     </div>
   </div>
 <% end %>

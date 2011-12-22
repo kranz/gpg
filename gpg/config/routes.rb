@@ -1,27 +1,27 @@
 Gpg::Application.routes.draw do
 
-  resources :service_locations
-
   resources :zones
 
   resources :esattori
 
   resources :contract_types
 
-  resources :contracts
+  resources :contracts do
+     resources :service_locations
+  end
 
   resources :accounts
 
   resources :employees
-
-  resources :locations
 
   resources :customers do
      resources :locations
   end
 
   resources :business_types
-
+  
+  resources :locations
+  
   devise_for :users
 
   get "home/index"

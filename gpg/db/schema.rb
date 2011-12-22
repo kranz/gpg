@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111129080839) do
+ActiveRecord::Schema.define(:version => 20111220155456) do
 
   create_table "accounts", :force => true do |t|
     t.string   "codmastro"
@@ -101,6 +101,8 @@ ActiveRecord::Schema.define(:version => 20111129080839) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "address"
+    t.float    "longitude"
+    t.float    "latitude"
   end
 
   create_table "service_locations", :force => true do |t|

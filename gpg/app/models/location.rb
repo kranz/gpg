@@ -1,6 +1,8 @@
 class Location < ActiveRecord::Base
   belongs_to :customer
-
+  geocoded_by :string_address
+  after_validation  :geocode, :if => :address_changed?
+  
   def string_address
   separator = self.attribute_present?(:numero_interno) ? "int" : "" 
   @addr = [self.address, 

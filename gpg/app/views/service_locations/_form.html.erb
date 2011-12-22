@@ -1,0 +1,31 @@
+
+  <div class="group">
+    <%= f.label :location_id, t("activerecord.attributes.service_location.location_id", :default => "Location"), :class => :label %>
+    <%= f.collection_select :location_id, 
+                          @contract.customer.locations, 
+                          :id,
+                          :name,
+                          :prompt => "Inserire l'indirizzo di servizio" %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+            
+
+  <div class="group">
+    <%= f.label :sequence, t("activerecord.attributes.service_location.sequence", :default => "Sequence"), :class => :label %>
+    <%= f.number_field :sequence, :class => 'number_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :sort_flag, t("activerecord.attributes.service_location.sort_flag", :default => "Sort flag"), :class => :label %>
+    <%= f.check_box :sort_flag, :class => 'check_box' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+        
+<div class="group navform wat-cf">
+  <button class="button" type="submit">
+    <%= image_tag("web-app-theme/icons/tick.png", :alt => "#{t("web-app-theme.save", :default => "Save")}") %> <%= t("web-app-theme.save", :default => "Save") %>
+  </button>
+  <span class="text_button_padding"><%= t("web-app-theme.or", :default => "or") %></span>
+	<%= link_to t("web-app-theme.cancel", :default => "Cancel"), contract_service_locations_path, :class => "text_button_padding link_button" %>
+</div>

@@ -6,7 +6,12 @@
     </ul>
   </div>          
   <div class="content">          
-    <h2 class="title"><%= t("web-app-theme.all", :default => "All")  %> Locations</h2>
+    <h2 class="title"><%= t("web-app-theme.all", :default => "All")  %> Locations</h2> 
+    <%= form_tag locations_path, :method => :get do %>
+	  <p>
+	    <%= text_field_tag :search, params[:search] %>
+	    <%= submit_tag "Cerca vicino", :name => nil %>
+	<% end %>
     <div class="inner">
       <table class="table">
         <tr>             
@@ -40,11 +45,10 @@
         <div class="actions">
         </div>
         
-        <%= paginate @locations  %>
+        <%= @locations  %>
         
       </div>
     </div>
   </div>
 </div>
 
-<% content_for :sidebar, render(:partial => 'sidebar') -%>

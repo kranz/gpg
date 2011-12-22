@@ -1,0 +1,2 @@
+module EsattoriHelper
+end

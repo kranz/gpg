@@ -8,3 +8,8 @@ jQuery ->
 # $("select").change ->
 #  $(@).after "<span class='change'> change() triggered! </span>"
 #  $("span").filter('.change').fadeout 4000
+   
+jQuery ->
+ $('#sloc').click ->
+  alert('PINOLO')
+  $('#pino').html('<a href="http://www.google.com">google</a>')           

@@ -1,0 +1,92 @@
+                         zones GET    /zones(.:format)                                             {:action=>"index", :controller=>"zones"}
+                               POST   /zones(.:format)                                             {:action=>"create", :controller=>"zones"}
+                      new_zone GET    /zones/new(.:format)                                         {:action=>"new", :controller=>"zones"}
+                     edit_zone GET    /zones/:id/edit(.:format)                                    {:action=>"edit", :controller=>"zones"}
+                          zone GET    /zones/:id(.:format)                                         {:action=>"show", :controller=>"zones"}
+                               PUT    /zones/:id(.:format)                                         {:action=>"update", :controller=>"zones"}
+                               DELETE /zones/:id(.:format)                                         {:action=>"destroy", :controller=>"zones"}
+                      esattori GET    /esattori(.:format)                                          {:action=>"index", :controller=>"esattori"}
+                               POST   /esattori(.:format)                                          {:action=>"create", :controller=>"esattori"}
+                  new_esattore GET    /esattori/new(.:format)                                      {:action=>"new", :controller=>"esattori"}
+                 edit_esattore GET    /esattori/:id/edit(.:format)                                 {:action=>"edit", :controller=>"esattori"}
+                      esattore GET    /esattori/:id(.:format)                                      {:action=>"show", :controller=>"esattori"}
+                               PUT    /esattori/:id(.:format)                                      {:action=>"update", :controller=>"esattori"}
+                               DELETE /esattori/:id(.:format)                                      {:action=>"destroy", :controller=>"esattori"}
+                contract_types GET    /contract_types(.:format)                                    {:action=>"index", :controller=>"contract_types"}
+                               POST   /contract_types(.:format)                                    {:action=>"create", :controller=>"contract_types"}
+             new_contract_type GET    /contract_types/new(.:format)                                {:action=>"new", :controller=>"contract_types"}
+            edit_contract_type GET    /contract_types/:id/edit(.:format)                           {:action=>"edit", :controller=>"contract_types"}
+                 contract_type GET    /contract_types/:id(.:format)                                {:action=>"show", :controller=>"contract_types"}
+                               PUT    /contract_types/:id(.:format)                                {:action=>"update", :controller=>"contract_types"}
+                               DELETE /contract_types/:id(.:format)                                {:action=>"destroy", :controller=>"contract_types"}
+    contract_service_locations GET    /contracts/:contract_id/service_locations(.:format)          {:action=>"index", :controller=>"service_locations"}
+                               POST   /contracts/:contract_id/service_locations(.:format)          {:action=>"create", :controller=>"service_locations"}
+ new_contract_service_location GET    /contracts/:contract_id/service_locations/new(.:format)      {:action=>"new", :controller=>"service_locations"}
+edit_contract_service_location GET    /contracts/:contract_id/service_locations/:id/edit(.:format) {:action=>"edit", :controller=>"service_locations"}
+     contract_service_location GET    /contracts/:contract_id/service_locations/:id(.:format)      {:action=>"show", :controller=>"service_locations"}
+                               PUT    /contracts/:contract_id/service_locations/:id(.:format)      {:action=>"update", :controller=>"service_locations"}
+                               DELETE /contracts/:contract_id/service_locations/:id(.:format)      {:action=>"destroy", :controller=>"service_locations"}
+                     contracts GET    /contracts(.:format)                                         {:action=>"index", :controller=>"contracts"}
+                               POST   /contracts(.:format)                                         {:action=>"create", :controller=>"contracts"}
+                  new_contract GET    /contracts/new(.:format)                                     {:action=>"new", :controller=>"contracts"}
+                 edit_contract GET    /contracts/:id/edit(.:format)                                {:action=>"edit", :controller=>"contracts"}
+                      contract GET    /contracts/:id(.:format)                                     {:action=>"show", :controller=>"contracts"}
+                               PUT    /contracts/:id(.:format)                                     {:action=>"update", :controller=>"contracts"}
+                               DELETE /contracts/:id(.:format)                                     {:action=>"destroy", :controller=>"contracts"}
+                      accounts GET    /accounts(.:format)                                          {:action=>"index", :controller=>"accounts"}
+                               POST   /accounts(.:format)                                          {:action=>"create", :controller=>"accounts"}
+                   new_account GET    /accounts/new(.:format)                                      {:action=>"new", :controller=>"accounts"}
+                  edit_account GET    /accounts/:id/edit(.:format)                                 {:action=>"edit", :controller=>"accounts"}
+                       account GET    /accounts/:id(.:format)                                      {:action=>"show", :controller=>"accounts"}
+                               PUT    /accounts/:id(.:format)                                      {:action=>"update", :controller=>"accounts"}
+                               DELETE /accounts/:id(.:format)                                      {:action=>"destroy", :controller=>"accounts"}
+                     employees GET    /employees(.:format)                                         {:action=>"index", :controller=>"employees"}
+                               POST   /employees(.:format)                                         {:action=>"create", :controller=>"employees"}
+                  new_employee GET    /employees/new(.:format)                                     {:action=>"new", :controller=>"employees"}
+                 edit_employee GET    /employees/:id/edit(.:format)                                {:action=>"edit", :controller=>"employees"}
+                      employee GET    /employees/:id(.:format)                                     {:action=>"show", :controller=>"employees"}
+                               PUT    /employees/:id(.:format)                                     {:action=>"update", :controller=>"employees"}
+                               DELETE /employees/:id(.:format)                                     {:action=>"destroy", :controller=>"employees"}
+                     locations GET    /locations(.:format)                                         {:action=>"index", :controller=>"locations"}
+                               POST   /locations(.:format)                                         {:action=>"create", :controller=>"locations"}
+                  new_location GET    /locations/new(.:format)                                     {:action=>"new", :controller=>"locations"}
+                 edit_location GET    /locations/:id/edit(.:format)                                {:action=>"edit", :controller=>"locations"}
+                      location GET    /locations/:id(.:format)                                     {:action=>"show", :controller=>"locations"}
+                               PUT    /locations/:id(.:format)                                     {:action=>"update", :controller=>"locations"}
+                               DELETE /locations/:id(.:format)                                     {:action=>"destroy", :controller=>"locations"}
+            customer_locations GET    /customers/:customer_id/locations(.:format)                  {:action=>"index", :controller=>"locations"}
+                               POST   /customers/:customer_id/locations(.:format)                  {:action=>"create", :controller=>"locations"}
+         new_customer_location GET    /customers/:customer_id/locations/new(.:format)              {:action=>"new", :controller=>"locations"}
+        edit_customer_location GET    /customers/:customer_id/locations/:id/edit(.:format)         {:action=>"edit", :controller=>"locations"}
+             customer_location GET    /customers/:customer_id/locations/:id(.:format)              {:action=>"show", :controller=>"locations"}
+                               PUT    /customers/:customer_id/locations/:id(.:format)              {:action=>"update", :controller=>"locations"}
+                               DELETE /customers/:customer_id/locations/:id(.:format)              {:action=>"destroy", :controller=>"locations"}
+                     customers GET    /customers(.:format)                                         {:action=>"index", :controller=>"customers"}
+                               POST   /customers(.:format)                                         {:action=>"create", :controller=>"customers"}
+                  new_customer GET    /customers/new(.:format)                                     {:action=>"new", :controller=>"customers"}
+                 edit_customer GET    /customers/:id/edit(.:format)                                {:action=>"edit", :controller=>"customers"}
+                      customer GET    /customers/:id(.:format)                                     {:action=>"show", :controller=>"customers"}
+                               PUT    /customers/:id(.:format)                                     {:action=>"update", :controller=>"customers"}
+                               DELETE /customers/:id(.:format)                                     {:action=>"destroy", :controller=>"customers"}
+                business_types GET    /business_types(.:format)                                    {:action=>"index", :controller=>"business_types"}
+                               POST   /business_types(.:format)                                    {:action=>"create", :controller=>"business_types"}
+             new_business_type GET    /business_types/new(.:format)                                {:action=>"new", :controller=>"business_types"}
+            edit_business_type GET    /business_types/:id/edit(.:format)                           {:action=>"edit", :controller=>"business_types"}
+                 business_type GET    /business_types/:id(.:format)                                {:action=>"show", :controller=>"business_types"}
+                               PUT    /business_types/:id(.:format)                                {:action=>"update", :controller=>"business_types"}
+                               DELETE /business_types/:id(.:format)                                {:action=>"destroy", :controller=>"business_types"}
+              new_user_session GET    /users/sign_in(.:format)                                     {:action=>"new", :controller=>"devise/sessions"}
+                  user_session POST   /users/sign_in(.:format)                                     {:action=>"create", :controller=>"devise/sessions"}
+          destroy_user_session DELETE /users/sign_out(.:format)                                    {:action=>"destroy", :controller=>"devise/sessions"}
+                 user_password POST   /users/password(.:format)                                    {:action=>"create", :controller=>"devise/passwords"}
+             new_user_password GET    /users/password/new(.:format)                                {:action=>"new", :controller=>"devise/passwords"}
+            edit_user_password GET    /users/password/edit(.:format)                               {:action=>"edit", :controller=>"devise/passwords"}
+                               PUT    /users/password(.:format)                                    {:action=>"update", :controller=>"devise/passwords"}
+      cancel_user_registration GET    /users/cancel(.:format)                                      {:action=>"cancel", :controller=>"devise/registrations"}
+             user_registration POST   /users(.:format)                                             {:action=>"create", :controller=>"devise/registrations"}
+         new_user_registration GET    /users/sign_up(.:format)                                     {:action=>"new", :controller=>"devise/registrations"}
+        edit_user_registration GET    /users/edit(.:format)                                        {:action=>"edit", :controller=>"devise/registrations"}
+                               PUT    /users(.:format)                                             {:action=>"update", :controller=>"devise/registrations"}
+                               DELETE /users(.:format)                                             {:action=>"destroy", :controller=>"devise/registrations"}
+                    home_index GET    /home/index(.:format)                                        {:controller=>"home", :action=>"index"}
+                          root        /                                                            {:controller=>"home", :action=>"index"}

@@ -1,6 +1,21 @@
 class LocationsController < ApplicationController
 
-  before_filter :find_customer
+  before_filter :find_customer, :except => [:index]
+
+  # GET /locations
+  # GET /locationss.json
+  def index
+    if params[:search].present?
+      @locations = Location.near(params[:search], 50, :order => :distance)
+    else
+      @locations = Location.all
+    end
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @locations }
+    end
+  end
 
   # GET /locations/1
   # GET /locations/1.json
@@ -68,7 +83,7 @@ class LocationsController < ApplicationController
     @customer.locations.destroy(@location)
 
     respond_to do |format|
-      format.html { redirect_to edit_customer_url }
+      format.html { redirect_to customer_url(@customer) }
       format.json { head :ok }
     end
   end
