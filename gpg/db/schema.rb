@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111220155456) do
+ActiveRecord::Schema.define(:version => 20120115205559) do
 
   create_table "accounts", :force => true do |t|
     t.string   "codmastro"
@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(:version => 20111220155456) do
     t.string   "customer_name"
     t.integer  "contract_type_id"
     t.integer  "initial_month"
+    t.string   "description"
   end
 
   create_table "customers", :force => true do |t|
@@ -72,9 +73,15 @@ ActiveRecord::Schema.define(:version => 20111220155456) do
     t.date     "birthdate"
     t.date     "enrolldate"
     t.date     "leavedate"
-    t.string   "sex"
+    t.string   "gender"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+    t.string   "email"
+    t.string   "phone_number"
   end
 
   create_table "esattori", :force => true do |t|

@@ -1,0 +1,127 @@
+<div id="inner_wrapper">
+  <div id="main_body" class="column">
+    <div id="page">
+      <div id="screen_body">
+	    <div id="page_header_wrapper">
+          <div id="page_header">
+	        <div class="page_header">
+		      </div behavior="scope_picker">
+		        <h1 id="parties_header">
+			      <span class="title">
+				    Tutti i dipendenti
+				  </span>
+			    </h1>  
+		      </div>
+	        </div>
+		  </div>
+		</div>
+	    <div id="page_contents_wrapper" class="clearfix">
+		  <div id="page_main_column" class="column">
+            <div class="liner">
+	          <div id="completed_operations">
+		      </div>
+		      <div id="employees">
+			    <div id="browser" data-cookie-name="employee_filters" data-href="/employees">
+                  <div class="employee_search_filters">
+	                <div id="page_filter_options" behavior="filter_picker">
+		              <p>Filtra i dipendenti per:</p>
+		              <ul>
+			            <li class="menu_container">
+				          <a class="add_filter menu_target" href="#">Nome</a>
+				        </li>
+			            <li class="menu_container">
+				          <a class="add_filter menu_target" href="#">Cognome</a>
+				        </li>
+			          </ul>
+		            </div>
+	              </div>
+	              <div class="content" behavior="content">
+	      	        <%= render "employees" %>
+		          </div>
+		          <div style="clear:left;">
+			      </div>
+				</div>
+			  </div>
+	        </div>
+		  </div>
+		  <div id="page_sidebar" class="Right column">
+		  </div>
+		</div>
+      </div>
+    </div>
+    <div style="margin-top: 30px"> </div>        
+  </div>
+  <div class="column" id="global_sidebar">
+    <div class="liner">
+      <div id="global_nav">
+        <ul>
+	      <li>
+		    <a class="" href=#>Contatti</a>
+		  </li>
+	      <li>
+		    <a class="" href=#>Aziende</a>
+		  </li>
+	    </ul>
+      </div>
+      <div id="recent_items">  
+	      <hr>
+	      <h4>Usati di recente																																																																																																																																																																																																																																																																																								</h4>
+	      <div class="recent_items">
+		  </div>
+      </div>          
+    </div>
+  </div>
+</div>
+
+
+
+
+********************
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "Elenco")}", employees_path  %></li>
+      <li><%= link_to "#{t("web-app-theme.new", :default => "Crea")}", new_employee_path %></li>
+    </ul>
+  </div>          
+  <div class="content">          
+    <h2 class="title"><%= t("web-app-theme.all", :default => "Elenco")  %> Dipendenti</h2>
+    <div class="inner">
+      <table class="table">
+        <tr>
+          <th class="first">
+            <%= t("activerecord.attributes.employee.lastname", :default => t("activerecord.labels.lastname", :default => "Cognome")) %>
+          </th>
+          <th>
+            <%= t("activerecord.attributes.employee.firstname", :default => t("activerecord.labels.firstname", :default => "Nome")) %>
+          </th>
+          <th class="last">&nbsp;</th>
+        </tr>
+        <% @employees.each do |employee| -%>
+        <tr class="<%= cycle("odd", "even") %>">
+          <td>
+            <%= link_to employee.lastname, employee_path(employee) %>
+          </td>
+          <td>
+            <%= link_to employee.firstname, employee_path(employee) %>
+          </td>
+          <td class="last">
+            <%= link_to "#{t("web-app-theme.show", :default => "Mostra")}", employee_path(employee) %> |
+            <%= link_to "#{t("web-app-theme.edit", :default => "Modifica")}", edit_employee_path(employee) %> |
+            <%= link_to "#{t("web-app-theme.delete", :default => "Elimina")}", employee_path(employee), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Sei sicuro?")}" %>
+          </td>
+        </tr>          
+        <% end -%>
+      </table>
+      <div class="actions-bar wat-cf">
+        <div class="actions">
+        </div>
+        
+        <%= paginate @employees  %>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<% content_for :sidebar, render(:partial => 'sidebar') -%>

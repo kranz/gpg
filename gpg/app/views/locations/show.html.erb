@@ -1,73 +1,19 @@
-<div class="block">
-  <div class="secondary-navigation">
-    <ul class="wat-cf">
-      <li class="first"><%= link_to @customer.name, customer_path(@customer)  %></li>
-    </ul>
-  </div>          
-  <div class="content">
-    <div class="inner" style="width: 40%; float: left;">
-        <p>
-          <b><%= t("activerecord.attributes.location.name", :default => t("activerecord.labels.name", :default => "Name")) %>:</b>
-          <%= @location.name %>
-        </p>
+<div class="blocco">
+   <div class="cli1">
+	 <%= @location.customer.name %>
+   </div>
+   <div class="cli2">
+	 <%= @location.name %>
+   </div>
+   <div class="cli3">
+	 <%= @location.string_address %>
+   </div>
+   <div class="mappa">
+	  <%= image_tag "http://maps.google.com/maps/api/staticmap?size=400x250&sensor=false&zoom=16&markers=#{@location.latitude}%2C#{@location.longitude}" %>	 
+   </div>   
+</div>
 
-        <p>
-          <b><%= t("activerecord.attributes.location.type", :default => t("activerecord.labels.type", :default => "Type")) %>:</b>
-          <%= @location.type %>
-        </p>
-
-        <p>
-          <b><%= t("activerecord.attributes.location.address", :default => t("activerecord.labels.address", :default => "Indirizzo")) %>:</b>
-          <%= @location.address %>
-        </p>
-        <p>
-          <b><%= t("activerecord.attributes.location.zip", :default => t("activerecord.labels.zip", :default => "Zip")) %>:</b>
-          <%= @location.zip %>
-        </p>
-
-        <p>
-          <b><%= t("activerecord.attributes.location.comune", :default => t("activerecord.labels.comune", :default => "Comune")) %>:</b>
-          <%= @location.comune %>
-        </p>
-
-        <p>
-          <b><%= t("activerecord.attributes.location.provincia", :default => t("activerecord.labels.provincia", :default => "Provincia")) %>:</b>
-          <%= @location.provincia %>
-        </p>
-
-        <p>
-          <b><%= t("activerecord.attributes.location.numero_civico", :default => t("activerecord.labels.numero_civico", :default => "Numero civico")) %>:</b>
-          <%= @location.numero_civico %>
-        </p>
-
-        <p>
-          <b><%= t("activerecord.attributes.location.estensione_civico", :default => t("activerecord.labels.estensione_civico", :default => "Estensione civico")) %>:</b>
-          <%= @location.estensione_civico %>
-        </p>
-
-        <p>
-          <b><%= t("activerecord.attributes.location.numero_interno", :default => t("activerecord.labels.numero_interno", :default => "Numero interno")) %>:</b>
-          <%= @location.numero_interno %>
-        </p>
-
-        <p>
-          <b><%= t("activerecord.attributes.location.estensione_interno", :default => t("activerecord.labels.estensione_interno", :default => "Estensione interno")) %>:</b>
-          <%= @location.estensione_interno %>
-        </p>
-
-        <p>
-          <b><%= t("activerecord.attributes.location.customer_id", :default => t("activerecord.labels.customer_id", :default => "Customer")) %>:</b>
-          <%= @location.customer_id %>
-        </p>
       <div class="wat-cf">
         <%= link_to image_tag("web-app-theme/icons/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Edit")}") + " " + t("web-app-theme.edit", :default=> "Edit"), edit_customer_location_path(@customer,@location), :class => "button" %> 
         <%= link_to image_tag("web-app-theme/icons/cross.png", :alt => "#{t("web-app-theme.delete", :default=> "Delete")}") + " " + t("web-app-theme.delete", :default => "Delete"), customer_location_path(@customer,@location), :method => "delete", :class => "button", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
       </div>      
-    </div>
-    <div class="inner" style="float: left">
-	  <%= image_tag "http://maps.google.com/maps/api/staticmap?size=400x250&sensor=false&zoom=16&markers=#{@location.latitude}%2C#{@location.longitude}" %>
-	</div>
-  </div>
-</div>
-
-<% content_for :sidebar, render(:partial => 'sidebar') -%>

@@ -1,0 +1,32 @@
+<div class="employees">
+  <table class="index">
+    <% @employees.each do |employee| -%>  
+      <%= tag("tr", :id => "row_employee_#{employee.id}") %>
+	    <td class="checkbox">
+		  <label class="checkbox">
+			<%= check_box_tag "id_", employee.id, false, :class => "checkbox", :behavior => "employee_id_input" %>
+          </label>
+		</td>
+	    <td class="avatar">
+		  <%= link_to image_tag(employee.avatar_image), employee_path(employee), :class => "image" %>
+		</td>
+	    <td class="employee">
+		  <%= tag("div", :id => "employee_#{employee.id}", :class => "avatar_subject") %>
+			<div class="info">
+			  <h3>
+   			    <%= link_to employee.fullname, employee_path(employee), :class => "to_employee" %>
+			  </h3>
+			  <h6>
+				<div class="title">
+				  Coop Guardiani Giurati Lubrani
+				</div>
+				<%= link_to "indirizzo email", "mailto:indirizzo@email.com", :class => "link_to email grey" %>
+			  </h6>
+			  <p class="tags"></p>
+			</div>
+		  </div>
+		</td>
+	  </tr>
+    <% end %>
+  </table>
+</div>

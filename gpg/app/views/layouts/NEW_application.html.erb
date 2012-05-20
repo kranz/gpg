@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>gpg - Lubrani</title>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0b2/jquery.mobile-1.0b2.min.css" />
+    <link rel="stylesheet" href="http://jquerymobile.com/demos/1.0/docs/_assets/css/jqm-docs.css" />   
+    <%= stylesheet_link_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/redmond/jquery-ui.css", "application" %>
+    <%= stylesheet_link_tag 'gpg' %>
+    <%= stylesheet_link_tag 'web-app-theme' %>
+    <%= javascript_include_tag 'application' %>
+    <%= csrf_meta_tag %>
+  </head>
+  <body class="clearfix person party subject party narrow_page_with_sidebar_outside"> 
+    <div id="launchbar">  
+	  <ul class="menus">
+	    <li class="menu" style="float:left;"><a class="hover_target account" href=#>Azione 1</a></li>
+	    <li class="menu" style="float:left;"><a class="hover_target account" href=#>Azione 2</a></li>
+		<li class="menu"><a class="hover_target account" href=#>Azione 3</a></li>
+	  </ul>
+    </div>                   
+    <div id="app_header">
+	  <div class="boundary">	
+  	    <div id="inner_header_wrapper">
+	      <%= link_to image_tag("lubrani2.png", :style=>"padding-top: 8px;", :alt => "logo-lubrani"), home_index_path, :id => "app_logo" %>
+          <table id="page_actions">
+            <tr>
+	  	      <td class="tiny">
+	      	    <div class="menu_container">
+				  <span class="action">
+				    <a behavior="return_to" href=#>
+				      <span>Nuovo Contatto</span>
+				    </a>
+				  </span>
+			    </div>
+			  </td>
+		      <td class="tiny">
+			    <div class="menu_container">
+				  <span class="action">
+				    <a behavior="return_to" href=#>
+				      <span>Nuova Contatta</span>
+				    </a>
+			      </span>
+			    </div>
+			  </td>
+              <td class="long">
+	            <div id="search_wrapper">
+		          <div class="quick_find">
+			        <div class="field" style="position:relative;">
+				      <span class="overlay_wrapper">
+					    <label class="overlabel" for="sidebar_live_search">Jump to a contact, case,deal, or tag..</label>
+                        <input id="sidebar_live_search" class="live_search autofocus overlayable" type="text" data-focus-priority="0" autocapitalize="off" autocorrect="off" autocomplete="off" title="Jump to a contact, case,deal, or tag.." name="term">
+					  </span>
+				    </div>
+			      </div>
+		        </div>
+	          </td>
+		    </tr>
+          </table>
+		  <div id="global_links_container">
+		    <div class="menu_container">
+		    </div>
+            <a href="#"><%= t("web-app-theme.profile", :default => "Profile") %></a>  		  <a href=#>Menu item 2</a>
+            <%= link_to t("web-app-theme.logout", :default => "Logout"), destroy_user_session_path, :method => :delete %>
+  		    <a class="help" href=#>HELP</a>
+		  </div>
+	    </div>
+	  </div>
+    </div>
+    <div id="wrapper">
+      <%= yield %>
+    </div>
+  </body>
+</html>

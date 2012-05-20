@@ -26,6 +26,12 @@
     </div>
   </div>
   <div class="edit_group">
+    <div class="edit_label">Descrizione</div>
+    <div class="edit_field">
+      <%= f.text_field :description %>
+    </div>
+  </div>
+  <div class="edit_group">
     <div class="edit_label">Cliente</div>
     <div class="edit_field">
        <%= f.collection_select :customer_id, 

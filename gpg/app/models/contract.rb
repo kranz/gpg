@@ -29,6 +29,16 @@ class Contract < ActiveRecord::Base
   ]
 
 
+  def location_markers
+    @markers = ""
+    self.service_locations.each do |sloc|
+       @markers = @markers + "&markers=color:red|label:A|" + sloc.location.latitude.to_s + "," + sloc.location.longitude.to_s
+    end 
+    @markers_url = "http://maps.google.com/maps/api/staticmap?center=Piazza+Corvetto,Genova&zoom=12&size=512x512&maptype=roadmap" + @markers + "&sensor=false&key=MAPS_API_KEY"
+  end   
+
+
+
 private
   def set_cust_name
     self.customer_name = self.customer.name

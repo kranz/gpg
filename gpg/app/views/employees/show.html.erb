@@ -40,9 +40,13 @@
         </p>
 
         <p>
-          <b><%= t("activerecord.attributes.employee.sex", :default => t("activerecord.labels.sex", :default => "Sesso")) %>:</b>
-          <%= @employee.sex %>
+          <b><%= t("activerecord.attributes.employee.gender", :default => t("activerecord.labels.gender", :default => "Sesso")) %>:</b>
+          <%= @employee.gender %>
+        </p>              
+        <p>
+          <%= image_tag @employee.avatar.url(:medium) %>
         </p>
+
       <div class="wat-cf">
         <%= link_to image_tag("web-app-theme/icons/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Modifica")}") + " " + t("web-app-theme.edit", :default=> "Modifica"), edit_employee_path(@employee), :class => "button" %> 
         <%= link_to image_tag("web-app-theme/icons/cross.png", :alt => "#{t("web-app-theme.delete", :default=> "Elimina")}") + " " + t("web-app-theme.delete", :default => "Elimina"), employee_path(@employee), :method => "delete", :class => "button", :confirm => "#{t("web-app-theme.confirm", :default => "Sei sicuro?")}" %>
@@ -50,5 +54,4 @@
     </div>
   </div>
 </div>
-
 <% content_for :sidebar, render(:partial => 'sidebar') -%>

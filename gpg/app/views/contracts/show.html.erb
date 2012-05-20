@@ -19,6 +19,10 @@
           <div class="show_field"><%= @contract.date %></div>
         </div>
         <div class="show_group">
+          <div class="show_label">Descrizione</div>
+          <div class="show_field"><%= @contract.description %></div>
+        </div>
+        <div class="show_group">
           <div class="show_label">Tipo contratto</div>
           <div class="show_field"><%= @contract.contract_type.name %></div>
         </div>
@@ -74,6 +78,9 @@
         <%= link_to image_tag("web-app-theme/icons/delete.png", :alt => "#{t("web-app-theme.delete", :default=> "Elimina")}") + " " + t("web-app-theme.delete", :default => "Elimina"), contract_path(@contract), :method => "delete", :class => "button", :confirm => "#{t("web-app-theme.confirm", :default => "Sei sicuro?")}" %>
       </div>      
     </div>
+    <div class="inner">
+	   <%= render :partial => "mappa" %>
+	</div>
   </div>
 </div>
 

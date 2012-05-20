@@ -1,50 +1,100 @@
-
-  <div class="group">
-    <%= f.label :firstname, t("activerecord.attributes.employee.firstname", :default => "Nome"), :class => :label %>
-    <%= f.text_field :firstname, :class => 'text_field' %>
-    <span class="description">Il nome di battesimo</span>
+<div class="edit">
+  <div class="page_divider">
+	<div class="primary_fields">
+	  <table class="contact_types" cellsapcing="0" cellpadding="0">
+        <tr class="name first_name">
+	      <th>
+		    <h2>Nome</h2>
+		  </th>
+		  <td>
+			<%= f.text_field :firstname, :class => "name autofocus" %>
+		  </td>
+	    </tr>
+        <tr class="name last_name">
+	      <th>
+		    <h2>Cognome</h2>
+		  </th>
+		  <td>
+			<%= f.text_field :lastname, :class => "name autofocus" %>
+		  </td>
+	    </tr>
+        <tr class="name last_name">
+	      <th>
+		    <h2>Data di nascita</h2>
+		  </th>
+		  <td>
+			<%= f.text_field :birthdate, :class => "name autofocus" %>
+		  </td>
+	    </tr>
+        <tr class="name last_name">
+	      <th>
+		    <h2>Codice Fiscale</h2>
+		  </th>
+		  <td>
+			<%= f.text_field :fiscalcode, :class => "name autofocus" %>
+		  </td>
+	    </tr>
+	  </table>
+	</div>
   </div>
-
-  <div class="group">
-    <%= f.label :lastname, t("activerecord.attributes.employee.lastname", :default => "Cognome"), :class => :label %>
-    <%= f.text_field :lastname, :class => 'text_field' %>
-    <span class="description">Cognome</span>
+  <div class="secondary_fields">
+	<table id="contact_section" class="contact_types" cellspacing="0" cellpadding="0">
+      <tr> 
+	    <th>
+		  <h2>Indirizzo email</h2>
+		</th>
+		<td>
+          <%= f.text_field :email, :class => "name autofocus" %>
+		</td>
+	  </tr>
+      <tr> 
+	    <th>
+		  <h2>Numero di telefono</h2>
+		</th>
+		<td>
+          <%= f.text_field :phone_number, :class => "name autofocus" %>
+		</td>
+	  </tr>
+      <tr> 
+	    <th>
+		  <h2>Data di assunzione</h2>
+		</th>
+		<td>
+          <%= f.text_field :enrolldate, :class => "name autofocus" %>
+		</td>
+	  </tr>
+      <tr>
+	    <th>
+		  <h2>Data di dimissione</h2>
+		</th>
+		<td>
+          <%= f.text_field :leavedate, :class => "name autofocus" %>
+		</td>
+	  </tr>
+      <tr>
+	    <th>
+		  <h2>Sesso</h2>
+		</th>
+		<td>
+          <%= f.label :gender, 'M', :value => 'M' %>
+          <%= f.radio_button :gender, "M", :class => "gender" %>
+          <%= f.label :gender, "F", :value => 'F' %>
+          <%= f.radio_button :gender, "F", :class => "gender" %>
+		</td>
+	  </tr>
+	</table>
   </div>
-
-  <div class="group">
-    <%= f.label :fiscalcode, t("activerecord.attributes.employee.fiscalcode", :default => "Codice Fiscale"), :class => :label %>
-    <%= f.text_field :fiscalcode, :class => 'text_field' %>
-    <span class="description">Il codice fiscale della persona fisica</span>
+  <div class="avatar_and_loader">
+	<div class="avatar">
+      <%= image_tag(@employee.avatar_image) %>
+    </div>
+	<div class="link_to_change">
+	  <h2>Aggiungi una foto</h2>
+      <%= f.file_field :avatar %>		
+	</div>
   </div>
-
-  <div class="group">
-    <%= f.label :birthdate, t("activerecord.attributes.employee.birthdate", :default => "Data di nascita"), :class => :label %>
-    <%= f.date_select :birthdate, :class => 'date_select' %>
-    <span class="description">Ex: a simple text</span>
-  </div>
-
-  <div class="group">
-    <%= f.label :enrolldate, t("activerecord.attributes.employee.enrolldate", :default => "Data di assunzione"), :class => :label %>
-    <%= f.date_select :enrolldate, :class => 'date_select' %>
-    <span class="description">Ex: a simple text</span>
-  </div>
-
-  <div class="group">
-    <%= f.label :leavedate, t("activerecord.attributes.employee.leavedate", :default => "Data uscita dall'azienda"), :class => :label %>
-    <%= f.date_select :leavedate, :class => 'date_select' %>
-    <span class="description">Ex: a simple text</span>
-  </div>
-
-  <div class="group">
-    <%= f.label :sex, t("activerecord.attributes.employee.sex", :default => "Sesso"), :class => :label %>
-    <%= f.text_field :sex, :class => 'text_field' %>
-    <span class="description">Ex: a simple text</span>
-  </div>
-        
-<div class="group navform wat-cf">
-  <button class="button" type="submit">
-    <%= image_tag("web-app-theme/icons/tick.png", :alt => "#{t("web-app-theme.save", :default => "Salva")}") %> <%= t("web-app-theme.save", :default => "Salva") %>
-  </button>
-  <span class="text_button_padding"><%= t("web-app-theme.or", :default => "oppure") %></span>
-	<%= link_to t("web-app-theme.cancel", :default => "Annulla"), employees_path, :class => "text_button_padding link_button" %>
+  <p class="submit">
+	<%= submit_tag "Aggiungi questo dipendente" %>
+  </p>
 </div>
+

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>gpg</title>
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0b2/jquery.mobile-1.0b2.min.css" />
+  <link rel="stylesheet" href="http://jquerymobile.com/demos/1.0/docs/_assets/css/jqm-docs.css" />
+  <%= stylesheet_link_tag 'web_app_theme' %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tag %>
+</head>
+<body>
+  <div id="container">
+    <div id="header">
+      <h1><a href="/">gpg</a></h1>
+      <div id="user-navigation">
+        <ul class="wat-cf">
+          <li><a href="#"><%= t("web-app-theme.profile", :default => "Profile") %></a></li>
+          <li><a href="#"><%= t("web-app-theme.settings", :default => "Settings") %></a></li>
+          <li><%= link_to t("web-app-theme.logout", :default => "Logout"), destroy_user_session_path, :method => :delete %> </li>
+        </ul>
+      </div>
+      <div id="main-navigation">
+        <ul class="wat-cf">
+          <li class="<%= params[:controller] == "home" ? "first_active" : "first" %>"><%= link_to "Home", root_path %></li>
+          <li class="<%= params[:controller] == "customers" ? "active" : nil %>"><%= link_to "Clienti", customers_path %></li>
+          <li class="<%= params[:controller] == "contracts" ? "active" : nil %>"><%= link_to "Contratti",contracts_path %></li>
+          </ul>
+      </div>
+    </div>    
+    <div id="wrapper" class="wat-cf">
+      <div class="flash">
+        <% flash.each do |type, message| -%>
+          <div class="message <%= type %>">
+            <p><%= message %></p>
+          </div>
+        <% end -%>
+      </div>
+      <div id="main">
+        <%= yield %>
+        <div id="footer">
+          <div class="block">
+            <p>Copyright &copy; <%= Time.now.year %> Frame Srl</p>
+          </div>      
+        </div>
+      </div>
+      <div id="sidebar">
+        <%= yield :sidebar %>
+      </div>
+    </div>    
+  </div>
+</body>
+</html>
